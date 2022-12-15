@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './product.css';
-import { Table, TableHead, Button, SearchIcon, Switch, toaster, AddIcon, Dialog, FileUploader, FileCard, SideSheet, Heading , EditIcon, InfoSignIcon, TrashIcon} from 'evergreen-ui';
+import Navbar from './navbar';
+import { Table, TableHead, Button, SearchIcon, Switch, toaster, AddIcon, Dialog, FileUploader, FileCard, SideSheet, Heading , EditIcon, InfoSignIcon, TrashIcon, Popover, Menu, SortIcon, SortAscIcon, SortDescIcon} from 'evergreen-ui';
 // import get firestore
 import { collection, getDocs, query, updateDoc, doc, setDoc, addDoc, deleteDoc } from "firebase/firestore";
 import db from '../environment/firebase';
@@ -235,9 +236,45 @@ function Product() {
         console.log(product);
     }
 
+    const filterByState = async (state) => {
+        // setState(state);
+        // const db = getFirestore();
+        const orderRef = collection(db, "items");
+        const itemsTam = [];
+        getDocs(orderRef).then((querySnapshot) => {
+            querySnapshot.forEach(async (doc) => {
+                itemsTam.push(doc.data());
+            });
+            if(state === 'all'){
+                getProduct();
+            }else{
+                const result = itemsTam.filter(item => item.state === state);
+                getCategory(result);
+            }
+        });
+    }
+
+    const filterByCategory = async (category) => {
+        const orderRef = collection(db, "items");
+        const itemsTam = [];
+        getDocs(orderRef).then((querySnapshot) => {
+            querySnapshot.forEach(async (doc) => {
+                itemsTam.push(doc.data());
+            });
+            if(category === 'all'){
+                getProduct();
+            }else{
+                const result = itemsTam.filter(item => item.type === category);
+                getCategory(result);
+            }
+        });
+    }
+
 
     return (
-        <div className='product'>
+        <div style={{width: '100%'}}>
+            <Navbar />
+            <div className='product'>
             <Dialog
                 isShown={isShown}
                 title="Add new product"
@@ -398,6 +435,33 @@ function Product() {
                 >
                 <p>Are you sure to delete this product?</p>
                 </Dialog>
+
+            <div className='product-header'>
+                <div className='product-card'>
+                    <div className='product-card-title'> Total products </div>
+                    <div className='product-card-number'>
+                        {
+                            products.length
+                        }
+                    </div>
+                </div>
+                <div className='product-card'>
+                    <div className='product-card-title'> Total product active </div>
+                    <div className='product-card-number'>
+                        {
+                            products.filter((product) => product.state=== true).length
+                        }
+                    </div>
+                </div>
+                <div className='product-card'>
+                    <div className='product-card-title'> Total product inactive </div>
+                    <div className='product-card-number'>
+                        {
+                            products.filter((product) => product.state=== false).length
+                        }
+                    </div>
+                </div>
+            </div>
                
 
             <div className='product-search'>
@@ -424,10 +488,43 @@ function Product() {
                             Quantity
                         </Table.TextHeaderCell>
                         <Table.TextHeaderCell flexBasis={150} flexGrow={0} flexShrink={0}>
-                            Type
+                            Category
+                            <Popover
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            {/* menu of category */}
+                                            <Menu.Item icon={SortIcon} onSelect={() => filterByCategory('all')}>All</Menu.Item>
+                                            {
+                                                categories.map((category) => {
+                                                    return (
+                                                        <Menu.Item icon={SortIcon} onSelect={() => filterByCategory(category.id)}>{category.name}</Menu.Item>
+                                                    )
+                                                })
+                                            }
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Button marginLeft={8} iconBefore={SortAscIcon} appearance="minimal" intent="primary" />
+                            </Popover>
                         </Table.TextHeaderCell>
-                        <Table.TextHeaderCell flexBasis={80} flexGrow={0} flexShrink={0}>
+                        <Table.TextHeaderCell flexBasis={120} flexGrow={0} flexShrink={0}>
                             State
+                            <Popover
+                                content={
+                                    <Menu>
+                                        <Menu.Group>
+                                            <Menu.Item icon={SortIcon} onSelect={() => filterByState('all')}>All</Menu.Item>
+                                            <Menu.Item icon={SortAscIcon} onSelect={() => filterByState(true)}>Confirmed</Menu.Item>
+                                            <Menu.Item icon={SortDescIcon} onSelect={() => filterByState(false)}>Not confirmed</Menu.Item>
+                                        </Menu.Group>
+                                    </Menu>
+                                }
+                            >
+                                <Button marginLeft={8} iconBefore={SortAscIcon} appearance="minimal" intent="primary" />
+                            </Popover>
+
                         </Table.TextHeaderCell>
                         <Table.TextHeaderCell>
                             Management
@@ -437,7 +534,7 @@ function Product() {
                         {
                             products.map((product) => {
                                 return (
-                                    <Table.Row className='product-list-row' key={product.id} textAlign='center'>
+                                    <Table.Row className='product-list-row' key={product.id} textAlign='center' borderBottom='none'>
                                         <Table.TextCell flexBasis={120} flexGrow={0} flexShrink={0} borderStyle='solid' borderColor='#CCCCCC' borderWidth='1px' borderTop='none'>
                                             {product.id}
                                         </Table.TextCell>
@@ -445,7 +542,7 @@ function Product() {
                                             {product.name}
                                         </Table.TextCell>
                                         <Table.TextCell flexBasis={100} flexGrow={0} flexShrink={0} borderStyle='solid' borderColor='#CCCCCC' borderWidth='1px' borderTop='none'>
-                                            {product.price}
+                                            {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.price)}
                                         </Table.TextCell>
                                         <Table.TextCell flexBasis={150} flexGrow={0} flexShrink={0} borderStyle='solid' borderColor='#CCCCCC' borderWidth='1px' borderTop='none'>
                                             <img src={product.imageUrl} alt="" width='80%' height='80%' className='image-product'/>
@@ -457,8 +554,8 @@ function Product() {
                                             {/* {product.type} */}
                                             {product.nameType}
                                         </Table.TextCell>
-                                        <Table.TextCell flexBasis={80} flexGrow={0} flexShrink={0} borderStyle='solid' borderColor='#CCCCCC' borderWidth='1px' borderTop='none'>
-                                            <Switch checked={product.state}  onChange={(e) => changeState(product.id, e.target.checked)} />
+                                        <Table.TextCell flexBasis={120} flexGrow={0} flexShrink={0} borderStyle='solid' borderColor='#CCCCCC' borderWidth='1px' borderTop='none'>
+                                            <Switch checked={product.state}  onChange={(e) => changeState(product.id, e.target.checked)} textAlign='center' />
                                         </Table.TextCell>
                                         <Table.TextCell borderStyle='solid' borderColor='#CCCCCC' borderWidth='1px' borderTop='none'>
                                             <Button className='product-list-button' appearance="primary" intent="primary" marginRight={8} iconBefore={EditIcon} onClick={() => {setIsShown3(true); setProductDetail(product)}}>Edit</Button>
@@ -493,6 +590,7 @@ function Product() {
                 </SideSheet>
                 
                 </React.Fragment>
+        </div>
         </div>
         );
 }

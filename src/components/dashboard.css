@@ -1,0 +1,190 @@
+.dashboard{
+    width: 100%;
+}
+.dashboard-content{
+    width: 90%;
+    margin: 50px auto;
+}
+.dashboard-content-body{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.dashboard-content-body-card-1{
+    width: 20%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #0066FF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-card-1 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #0066FF;
+}
+.dashboard-content-count-1{
+    font-size: 30px;
+    font-weight: bold;
+    color: 	#0066FF;
+}
+
+
+
+.dashboard-content-body-card-2{
+    width: 25%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #009966;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-card-2 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #009966;
+}
+.dashboard-content-count-2{
+    font-size: 30px;
+    font-weight: bold;
+    color: 	#009966;
+}
+
+.dashboard-content-body-card-3{
+    width: 25%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #FF3300;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-card-3 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #FF3300;
+}
+.dashboard-content-count-3{
+    font-size: 30px;
+    font-weight: bold;
+    color: 	#FF3300;
+}
+
+.dashboard-content-body-card-4{
+    width: 25%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #993366;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-card-4 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #993366;
+}
+.dashboard-content-count-4{
+    font-size: 30px;
+    font-weight: bold;
+    color: 	#993366;
+}
+
+.dashboard-content-body-2{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.dashboard-content-body-2-card-1{
+    width: 25%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #0066FF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-2-card-1 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #0066FF;
+}
+.dashboard-content-count-5{
+    font-size: 30px;
+    font-weight: bold;
+    color: 	#0066FF;
+}
+
+.dashboard-content-body-2-card-2{
+    width: 25%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #0066FF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-2-card-2 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #0066FF;
+}
+.dashboard-content-body-2-card-3{
+    width: 25%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #0066FF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-2-card-3 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #0066FF;
+}
+.dashboard-content-body-2-card-4{
+    width: 25%;
+    height: 120px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 5px solid #0066FF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+    margin-right: 20px;
+}
+.dashboard-content-body-2-card-4 h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #0066FF;
+}
+
+/* nếu màn hình bé hơn 768px, nội dung quá dài thì sẽ chuyển thành 3 chấm*/
+.dashboard-content-body-2-card-title{
+    overflow: hidden;
+    /* nếu chữ nhiều hơn 1 dòng thì sẽ chuyển thành 3 chấm */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+}
+

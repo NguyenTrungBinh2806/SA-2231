@@ -1,19 +1,19 @@
-.customer{
+.order{
     width: 90%;
     margin: 50px auto;
 }
-.customer-search{
+.order-search{
     width: 100%;
     /* margin: 20px auto; */
     display: flex;
     /* justify-content: space-between; */
 }
-.customer-add-button{
+.order-add-button{
     margin-left: auto;
     /* margin-top: 10px; */
     height: 40px;
 }
-.customer-search-input{
+.order-search-input{
     width: 40%;
     height: 40px;
     border: 1px solid gray;
@@ -21,27 +21,27 @@
     padding: 0 10px;
     font-size: 16px;
 }
-.customer-search-input:focus{
+.order-search-input:focus{
     outline: none;
 }
-.customer-search-input:hover{
+.order-search-input:hover{
     border: 1px solid #000;
 }
-.customer-search-button{
+.order-search-button{
     height: 40px;
 }
 
-.customer-list{
+.order-list{
     margin-top: 20px;
 }
-.customer-list-header{
+.order-list-header{
     color: aliceblue;
     background-color: #999999;
 }
-.customer-label{
+.order-label{
     margin-bottom: 10px;
 }
-.customer-input{
+.order-input{
     height: 30px;
     width: 100%;
     margin-bottom: 10px;
@@ -49,20 +49,16 @@
     border-radius: 4px;
     border: 1px solid #999999;
 }
-.order-detail{
-    cursor: pointer;
+.order-detail-header{
+    color: #000;
 }
-.order-detail:hover{
-    color: blue;
-    text-decoration: underline;
-}
-.customer-header{
+.order-header{
     display: flex;
     /* justify-content: center; */
     /* text-align: center; */
     flex-direction: row;
 }
-.customer-card{
+.order-card{
     width: 30%;
     height: 80px;
     margin-bottom: 20px;
@@ -72,13 +68,13 @@
     border-radius: 5px;
     box-shadow: 0 0 5px black;
 }
-.customer-card-title{
+.order-card-title{
     font-size:15px;
     font-weight: bold;
     color: #003366;
     justify-content: space-between;
 }
-.customer-card-number{
+.order-card-number{
     font-size: 30px;
     font-weight: bold;
     color: #3366FF;

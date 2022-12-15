@@ -62,3 +62,31 @@
     width: 70px;
     height: 55px;
 }
+.product-header{
+    display: flex;
+    /* justify-content: center; */
+    /* text-align: center; */
+    flex-direction: row;
+}
+.product-card{
+    width: 30%;
+    height: 80px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    text-align: center;
+    border-left: 5px solid #3366FF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+}
+.product-card-title{
+    font-size:15px;
+    font-weight: bold;
+    color: #003366;
+    justify-content: space-between;
+}
+.product-card-number{
+    font-size: 30px;
+    font-weight: bold;
+    color: #3366FF;
+    justify-content: space-between;
+}
