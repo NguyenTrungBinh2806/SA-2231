@@ -126,9 +126,9 @@ function Category() {
             <div className='category'>
             <div className='category-search'>
                 <input type="text" placeholder='Search' className='category-search-input' onChange={(e) => setSearch(e.target.value)} />
-                <Button className='category-search-button' appearance="primary" intent="primary" marginLeft={8} iconBefore={SearchIcon} onClick={() => searchCategory()}>Search</Button>
+                <Button className='category-search-button' appearance="primary" intent="primary" marginLeft={8} height={40} iconBefore={SearchIcon} onClick={() => searchCategory()}>Search</Button>
                 <div className='category-add'>
-                    <Button className='category-add-button' appearance="primary" intent="success" marginLeft={8} iconBefore={AddIcon} onClick={() => setIsShownAdd(true)}>Add a new category</Button>
+                    <Button className='category-add-button' appearance="primary" intent="success" marginLeft={8} height={40} iconBefore={AddIcon} onClick={() => setIsShownAdd(true)}>Add a new category</Button>
                 </div>
                 <Dialog
                     isShown={isShownAdd}
