@@ -174,7 +174,7 @@ function Order() {
                 </div>
                 <div className='order-search'>
                     <input type="text" placeholder='Search' className='order-search-input' onChange={(e) => setSearchValue(e.target.value)} />
-                    <Button className='order-search-button' appearance="primary" intent="primary" marginLeft={8} iconBefore={SearchIcon} onClick={searchById}>Search</Button>
+                    <Button className='order-search-button' appearance="primary" height={40} intent="primary" marginLeft={8} iconBefore={SearchIcon} onClick={searchById}>Search</Button>
                 </div>
                 <div className='order-list'>
                     <Table>
