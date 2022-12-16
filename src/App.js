@@ -45,8 +45,8 @@ function App() {
           {isLogin() && <Route path="/category" element={<Category />} /> }
           {isLogin() && <Route path="/product" element={<Product />} /> }
           {isLogin() && <Route path="/order" element={<Order />} /> }
-          {<Route path="/login" element={<Login />} /> }
-          {<Route path="*" element={<Login />} />}
+          <Route path="/login" element={<Login />} /> 
+          <Route path="*" element={<Login />} />
         </Routes>
         {/* {
           isLogin ? (
