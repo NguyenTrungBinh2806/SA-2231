@@ -150,7 +150,7 @@ function Order() {
                         </div>
                         <div className='order-card-number'>
                             {
-                                new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(items.reduce((total, item) => total + Number(item.total), 0))
+                                new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(items.filter(item => item.state === true).reduce((total, item) => total + Number(item.total), 0)) 
                             }
                         </div>
                     </div>
@@ -246,7 +246,7 @@ function Order() {
                             
                             </Table.Body>
                     </Table>
-                    <Dialog isShown={isShown} title={"Order detail " + itemDetail.id} onCloseComplete={() => setIsShown(false)} hasFooter={false}>
+                    <Dialog isShown={isShown} title={"Order detail " + itemDetail.id} onCloseComplete={() => setIsShown(false)} hasFooter={false} width={800}>
                         <div className='order-detail-info'>
                             <div className='order-detail-header'>
                                 <div className='order-detail-header-id'>
@@ -274,8 +274,12 @@ function Order() {
                                 <br/>
                                 <div className='order-detail-header-cus'>
                                     <b>Customer Name:</b> {itemDetail.customer?.name} - <b>Phone:</b> {itemDetail.customer?.phone}
+                                    <br/>
+                                    <br/>
+                                    <b>Delivery address: </b> {itemDetail.deliveryAddress}
                                 </div>
                                 <br/>
+
                                 <div className='order-detail-header-product'>
                                     <Table>
                                         <Table.Head className='order-detail-header-product-header' backgroundColor='#999999' color='#ffffff'>

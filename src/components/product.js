@@ -581,6 +581,8 @@ function Product() {
                         <p className='detail-content'>{productDetail.price}đ</p>
                         <h4 className='title-detail'>Quantity</h4>
                         <p className='detail-content'>{productDetail.quantity}</p>
+                        <h4 className='title-detail'>Created at</h4>
+                        <p className='detail-content'>{productDetail.createAt}</p>
                         <h3 className='title-detail'>Image</h3>
                         <img src={productDetail.imageUrl} alt="" width='90%' height='90%' />
                         <h3 className='title-detail'>Description</h3>
