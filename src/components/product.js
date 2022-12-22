@@ -421,9 +421,7 @@ function Product() {
                     }}
                     // submitted, clear data
                 />
-
                 </Dialog>
-
                 {/* dialog for delete */}
                 <Dialog
                 isShown={isShown4}
@@ -465,7 +463,7 @@ function Product() {
                
 
             <div className='product-search'>
-                <input type="text" placeholder='Search' className='product-search-input' onChange={(e) => setSearchValue(e.target.value)} />
+                <input type="text" placeholder='Search with ID or Name' className='product-search-input' onChange={(e) => setSearchValue(e.target.value)} />
                 <Button className='product-search-button' appearance="primary" height={40} intent="primary" marginLeft={8} iconBefore={SearchIcon} onClick={() => {searchIdOrName(searchValue)}}>Search</Button>
                 <Button className ='product-add-button' appearance="primary" height={40} intent="success" marginLeft={8} iconBefore={AddIcon} onClick={() => setIsShown(true)}>Add a new product</Button>
             </div>

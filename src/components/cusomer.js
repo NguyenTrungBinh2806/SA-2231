@@ -198,7 +198,7 @@ function Customer() {
       <div className="customer-search">
         <input
           type="text"
-          placeholder="Search by Id or phone number"
+          placeholder="Search by ID or phone number"
           className="customer-search-input"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

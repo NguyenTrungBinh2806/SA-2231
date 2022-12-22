@@ -124,12 +124,6 @@ function Order() {
     }
 
 
-
-
-
-
-
-
     return (
         <div style={{width: '100%'}}>
             <Navbar/>
@@ -173,7 +167,7 @@ function Order() {
                         
                 </div>
                 <div className='order-search'>
-                    <input type="text" placeholder='Search' className='order-search-input' onChange={(e) => setSearchValue(e.target.value)} />
+                    <input type="text" placeholder='Search with ID' className='order-search-input' onChange={(e) => setSearchValue(e.target.value)} />
                     <Button className='order-search-button' appearance="primary" height={40} intent="primary" marginLeft={8} iconBefore={SearchIcon} onClick={searchById}>Search</Button>
                 </div>
                 <div className='order-list'>
@@ -239,7 +233,7 @@ function Order() {
                                     </Table.TextCell>
                                     <Table.TextCell borderStyle='solid' borderColor='#CCCCCC' borderWidth='1px' borderTop='none'>
                                         <Button intent='primary' marginRight={16} appearance='primary' onClick={() => { setIsShown(true); setItemDetail(item); }}>Detail</Button>
-                                        <Button intent='danger' marginRight={16} appearance='primary'> Delete </Button>
+                                        {/* <Button intent='danger' marginRight={16} appearance='primary'> Delete </Button> */}
                                     </Table.TextCell>
                                 </Table.Row>
                             ))}
