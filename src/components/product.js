@@ -469,7 +469,7 @@ function Product() {
             </div>
             <div className='product-list'>
                 <Table>
-                    <Table.Head className='product-list-header' backgroundColor='#CCCCCC' color='#ffffff' textAlign='center'>
+                    <Table.Head className='product-list-header' backgroundColor='#999999' color='#ffffff' textAlign='center'>
                         <Table.TextHeaderCell flexBasis={120} flexGrow={0} flexShrink={0}>
                             ID
                         </Table.TextHeaderCell>
