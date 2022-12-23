@@ -185,7 +185,7 @@ function Category() {
                                     </Table.TextCell>
                                     <Table.TextCell>
                                         <Button intent='warning' marginRight={16} appearance='primary' iconBefore={EditIcon} onClick={() => getCategoryToUpdate(category)}> Edit </Button>
-                                        <Button intent='danger' marginRight={16} appearance='primary' iconBefore={TrashIcon} onClick={() => getCategoryToDelete(category)}> Delete </Button>
+                                        {/* <Button intent='danger' marginRight={16} appearance='primary' iconBefore={TrashIcon} onClick={() => getCategoryToDelete(category)}> Delete </Button> */}
                                     </Table.TextCell>
                                 </Table.Row>
                             );
